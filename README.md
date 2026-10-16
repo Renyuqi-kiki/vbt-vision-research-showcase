@@ -1,27 +1,14 @@
-# Monocular VBT and Fitness-AQA Research Showcase
+# Monocular Movement Analysis Prototype
 
-This public repository presents a privacy-safe overview of my undergraduate project on monocular vision-based velocity-based training (VBT) and the research direction that grew from it.
+A camera-based movement-analysis prototype with a small Python demonstration of trajectory processing, action phases, and quality checks.
 
-The original project explored whether a single consumer camera could support squat repetition detection, movement-phase analysis, trajectory processing, and quality-aware feedback. The current research direction extends this experience toward **few-label temporal error localization for fitness action quality assessment (AQA)**.
+**Start here:** [run the demonstration](#run-the-demonstration) · [system architecture](docs/system-architecture.svg) · [research records](https://github.com/Renyuqi-kiki/fitness-aqa-research-progress)
 
-> This is a research and educational prototype. It is not a validated VBT instrument, medical device, or training-prescription system.
+## Project context
 
-## Research progression
+This engineering project explored squat repetition detection and phase-aware summaries from a single camera. It provided the starting point for my later research on visual evidence and movement assessment.
 
-```text
-Undergraduate prototype
-Monocular video -> pose/trajectory -> repetitions and phase-aware metrics
-
-Current research question
-Trajectory-derived phase teacher + few temporal error labels
-                         -> RGB-only temporal error localization
-```
-
-The main question for the next stage is:
-
-> Can trajectory-derived action-phase supervision improve few-label temporal error localization in real-world fitness videos, while keeping the deployed model RGB-only?
-
-Trajectory is therefore treated as **training-time supervision**, rather than simply being concatenated with RGB as an additional test-time input.
+This repository contains a focused demonstration rather than the complete private application. Physical velocity estimates have not been validated against a reference instrument; this is a research and educational prototype.
 
 ## System overview
 
@@ -42,7 +29,7 @@ The undergraduate prototype followed this core processing chain:
 
 The figure is generated from an illustrative synthetic trajectory. It contains no participant video or restricted dataset content.
 
-## Public code
+## Run the demonstration
 
 The small module in [`src/phase_teacher.py`](src/phase_teacher.py) demonstrates two ideas used in the research pipeline:
 
@@ -78,14 +65,16 @@ This public showcase deliberately excludes:
 
 The original engineering repository remains private. The code here is a small, independently organized teaching and research demonstration rather than a full copy of that system.
 
+## Research context
+
+Earlier project planning explored trajectory-derived supervision for temporal error localization. That direction is retained as project history, rather than a claim of a completed or validated method. Dated experiment summaries are available in the [research records](https://github.com/Renyuqi-kiki/fitness-aqa-research-progress).
+
 ## Limitations
 
-Monocular pixel trajectories are affected by camera angle, distance, perspective, occlusion, pose-estimation noise, and frame timing. Consequently, a visually derived velocity estimate must not be treated as a validated physical measurement without synchronized comparison against an appropriate reference instrument.
-
-The current research emphasis is therefore moving from unvalidated velocity claims toward structured, phase-aware video understanding and temporal error localization.
+Image trajectories depend on camera angle, distance, perspective, occlusion, pose-estimation noise, and frame timing. They require synchronized reference measurements before supporting physical-accuracy claims.
 
 ## Author
 
-**Ren Yuqi**  
+**Yuqi Ren**  
 The Hong Kong Polytechnic University  
-GitHub: [renyuqihahaha](https://github.com/renyuqihahaha)
+GitHub: [Renyuqi-kiki](https://github.com/Renyuqi-kiki)
